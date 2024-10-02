@@ -26,37 +26,37 @@ function mouseClicked() {
   translate(pitch / 2, pitch / 2);
 
   noFill();
+  let sqarec = random(["d6001a", "eb0f64", "fc1ba2"]);
+  let starc = random(["#f5e400", "#f5bf1d", "#f4f568"]);
+  let circlec = random(["1b66f7", "31a4fc", "12c0eb"]);
 
   let rn = random(0, 8);
   print(rn);
 
   if (rn < 2) {
+    stroke(sqarec); //color squares random red
     //GENERATE RANDOM GRID OF SQUARES
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
-        let sqc = random(["d6001a", "eb0f64", "fc1ba2"]);
-        stroke(sqc);
         rect(x, y, dd);
       }
     }
   } else if (rn < 5) {
+    stroke(starc); //color stars random yellow
     // GENERATE RANDOM GRID OF STARS
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
-        let sc = random(["#f5e400", "#f5bf1d", "#f4f568"]);
-        stroke(sc);
         star(x, y, dd, 10, 4);
       }
     }
   } else {
+    stroke(circlec); //color circles random blue
     //GENERATE RANDOM GRID OF CIRCLES
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
-        let cc = random(["1b66f7", "31a4fc", "12c0eb"]);
-        stroke(cc);
         ellipse(x, y, dd);
       }
     }
