@@ -11,7 +11,9 @@ I wanted to make it so the shapes were random sizes upon generation, and then ra
 
 I managed to get random sizes upon generation, but I ran into an issue with the colors. I started with the stars, and managed to get the stars to generate yellow every time, but when I tried to apply the same code to the squares and circles for their colors, it wouldn't work and still only the stars were colored. I reached out to a friend who pointed out to me that I had forgotten hash signs on the hex colors! 
 
-Then I realized the screen was getting quite crowded after a while so I added another if/else function so that the screen would randomly reset every so often.
+I got random areas onscreen to work, and then I changed the rn = range from (0,8) to (0,9) and changed the if/else ranges to make a more equal distribution.
+
+Then I realized the screen was getting quite crowded after a while so I added another if/else function so that the screen would randomly reset every so often, which meant i had to change the rn range again from (0,9) to (0,10) where anything between 9 and 10 mean the screen would reset.
 
 
 

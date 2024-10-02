@@ -27,7 +27,7 @@ function mouseClicked() {
 
   noFill();
 
-  let rn = random(0, 9);
+  let rn = random(0, 10);
   print(rn);
 
   if (rn < 3) {
@@ -35,11 +35,11 @@ function mouseClicked() {
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
-        let vx = random(-50,50);
-        let vy = random(-50,50);
+        let vx = random(-50, 50);
+        let vy = random(-50, 50);
         let squarec = random(["#d6001a", "#eb0f64", "#fc1ba2"]);
         push();
-        translate(x,y);
+        translate(x, y);
         stroke(squarec); //color squares random red
         rect(vx, vy, dd);
         pop();
@@ -50,30 +50,32 @@ function mouseClicked() {
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
-        let vx = random(-50,50);
-        let vy = random(-50,50);
+        let vx = random(-50, 50);
+        let vy = random(-50, 50);
         let starc = random(["#feff00", "#fffe78", "#fcc615"]);
         push();
-        translate(x,y);
+        translate(x, y);
         stroke(starc); //color stars random yellow
         star(vx, vy, dd, 10, 4);
         pop();
       }
     }
-  } else {
+  } else if (rn < 9) {
     //GENERATE RANDOM GRID OF CIRCLES
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
-        let vx = random(-50,50);
-        let vy = random(-50,50);
+        let vx = random(-50, 50);
+        let vy = random(-50, 50);
         let circlec = random(["#1b66f7", "#31a4fc", "#12c0eb"]);
         push();
-        translate(x,y);
+        translate(x, y);
         stroke(circlec); //color circles random blue
         ellipse(vx, vy, dd);
         pop();
       }
     }
+  } else {
+    setup();
   }
 }
