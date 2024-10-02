@@ -34,29 +34,29 @@ function mouseClicked() {
   print(rn);
 
   if (rn < 2) {
-    stroke(sqarec); //color squares random red
     //GENERATE RANDOM GRID OF SQUARES
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
+        stroke(sqarec); //color squares random red
         rect(x, y, dd);
       }
     }
   } else if (rn < 5) {
-    stroke(starc); //color stars random yellow
     // GENERATE RANDOM GRID OF STARS
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
+        stroke(starc); //color stars random yellow
         star(x, y, dd, 10, 4);
       }
     }
   } else {
-    stroke(circlec); //color circles random blue
     //GENERATE RANDOM GRID OF CIRCLES
     for (y = 0; y < height; y += pitch) {
       for (x = 0; x < width; x += pitch) {
         let dd = random(sqDim / 8, sqDim * 2);
+        stroke(circlec); //color circles random blue
         ellipse(x, y, dd);
       }
     }
