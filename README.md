@@ -7,7 +7,6 @@ I started off by making a normal grid of white squares against a black backgroun
 I wanted to play with `mouseClicked()` but instead of generating random shapes upon loading the page and having the page reset with every mouse click, I wanted each click to randomly generate either stars, circles, or squares exclusively. 
 
 ![fun grid sketch](./20241003_122405.jpg)
-###### My brainstorming sketch.
 
 I couldn't think of a way to do this with the `for()` loops still existing in `setup()`, so instead basically everything is happening within `mouseClicked()`. Instead of having one `for()` loop randomly generating all three shapes together, like we had in class, the best way I could think of to have each click generate just one group of shapes was to separate the code into three `for()` loops, one for each shape.
 
@@ -27,6 +26,8 @@ I tried to recreate Wall Drawing #118, "On a wall surface, any continuous stretc
 
 I went through a lot of different ideas for how to do this because I felt sure that this was something that could be done very simply and shortly but the most obvious ways to do it were incredibly code-heavy.
 
+![first sketches](./20241003_234054.jpg)
+
 I first thought I could use `let rn = random(0, width)` and have 50 points, `let point1 = (rn, rn)` through `let point50 = (rn, rn)` and then create 25 lines like `line(point1, point2)`, `line(point2, point3)`, etc. But I quickly realized that in order for all the points to be different, that would mean having 100 different random numbers generated for the points, and that none of this would involve a `for()` loop. 
 
 I eventually managed to generate multiple lines all with random start and end points with
@@ -45,4 +46,8 @@ for (x = 0; x < width; x += 100) {
 ```
 However, this didn't limit the amount of lines to 25 (aka the amount of points to 50). I briefly toyed with the idea of splitting the screen up into 50 quadrants and generating one point randomly within each quadrant to make 25 lines, but realized that would take about just as much brute-forcing as my original ideas. 
 
+![50 quadrant sketch](./20241003_234108.jpg)
+
 I reached out to the same friend, and they said that in python they would use a `while` loop to solve this, and that p5.js might have something similar, which it does! The p5.js reference page for `while` loops was fairly simple to figure out, so I made one that counted the number of lines from 0 to 24, while keeping my randomized line generation within it, and this worked to create 25 random lines (aka 50 random connected points). I know the assignment said to use `for()` loops, but this was much simpler and more streamlined.
+
+I also added another `mouseClicked()` function to reset the screen with every click.
