@@ -22,3 +22,27 @@ I then randomized the shapes' locations onscreen, changed the `let rn = random()
 Then I realized the screen was getting quite crowded after a few clicks so I added another `if()` argument so that the screen would randomly reset every so often, which meant I had to change the `let rn = random()` range again from `(0, 9)` to `(0, 10)`, where anything between 9 and 10 meant the screen would reset.
  
 ## HW04B
+
+I tried to recreate Wall Drawing #118, "On a wall surface, any continuous stretch of wall, using a hard pencil, place fifty points at random. The points should be evenly distributed over the area of the wall. All of the points should be connected by straight lines."
+
+I went through a lot of different ideas for how to do this because I felt sure that this was something that could be done very simply and shortly but the most obvious ways to do it were incredibly code-heavy.
+
+I first thought I could use `let rn = random(0, width)` and have 50 points, `let point1 = (rn, rn)` through `let point50 = (rn, rn)` and then create 25 lines like `line(point1, point2)`, `line(point2, point3)`, etc. But I quickly realized that in order for all the points to be different, that would mean having 100 different random numbers generated for the points, and that none of this would involve a `for()` loop. 
+
+I eventually managed to generate multiple lines all with random start and end points with
+
+```
+for (x = 0; x < width; x += 100) {
+  for (y = 0; y < height; y += 100) {
+    let r1 = random(0, width);
+    let r2 = random(0, height);
+    let r3 = random(0, width);
+    let r3 = random(0, height);
+
+    line(r1, r2, r3, r4);
+  }
+}
+```
+However, this didn't limit the amount of lines to 25 (aka the amount of points to 50). I briefly toyed with the idea of splitting the screen up into 50 quadrants and generating one point randomly within each quadrant to make 25 lines, but realized that would take about just as much brute-forcing as my original ideas. 
+
+I reached out to the same friend, and they said that in python they would use a `while` loop to solve this, and that p5.js might have something similar, which it does! The p5.js reference page for `while` loops was fairly simple to figure out, so I made one that counted the number of lines from 0 to 24, while keeping my randomized line generation within it, and this worked to create 25 random lines (aka 50 random connected points). I know the assignment said to use `for()` loops, but this was much simpler and more streamlined.
